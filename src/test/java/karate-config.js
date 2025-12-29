@@ -1,0 +1,20 @@
+function fn() {
+
+  var env = karate.env || 'dev';
+  karate.log('karate.env:', env);
+
+  var baseUrl = java.lang.System.getenv('CRUDCRUD_BASE_URL');
+  var apiKey  = java.lang.System.getenv('CRUDCRUD_API_KEY');
+
+  if (!baseUrl || !apiKey) {
+    throw 'Missing environment variables CRUDCRUD_BASE_URL or CRUDCRUD_API_KEY';
+  }
+
+  var config = {
+    env: env,
+    baseUrl: baseUrl,
+    apiKey: apiKey
+  };
+
+  return config;
+}

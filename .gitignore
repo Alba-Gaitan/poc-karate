@@ -1,0 +1,32 @@
+# Maven
+target/
+
+# Karate reports
+target/karate-reports/
+target/surefire-reports/
+
+# Environment variables / secrets
+.env
+.env.*
+*.secret
+
+# IDE - IntelliJ
+.idea/
+*.iml
+
+# IDE - VS Code
+.vscode/
+
+# IDE - Eclipse
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Java temp files
+*.log
+*.tmp
+*.class
