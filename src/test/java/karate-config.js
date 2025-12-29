@@ -6,7 +6,7 @@ function fn() {
   var baseUrl = java.lang.System.getenv('BASE_URL');
   var apiKey  = java.lang.System.getenv('API_KEY');
 
-  karate.log('BASE_URL:', baseUrl);
+  karate.log('BASE_URL-c:', baseUrl);
   karate.log('API_KEY exists:', !!apiKey);
 
 
