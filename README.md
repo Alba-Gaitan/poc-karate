@@ -2,16 +2,36 @@
 
 ## 📌 Project Overview
 
-This project contains automated API tests for the Unicorns API, implemented using Karate DSL and Maven.
-The goal of this project is to validate CRUD operations following BDD practices, clean project structure, and industry-standard automation guidelines.
+## 📌 Overview
 
-The tests are designed to be:
+This project is a **Proof of Concept (PoC)** API test automation framework built with **Karate Framework**.
 
--  Easy to maintain
+It validates a CRUD REST API using **CrudCrud**, a free and public service designed for testing and prototyping REST APIs.
 
--  Readable by technical and non-technical stakeholders
+The framework demonstrates:
+- Clean project structure
+- Page Object Model–inspired approach for APIs
+- Modular request/response schemas
+- Secure configuration using environment variables
+- CI execution via **GitHub Actions**
 
--  Ready for CI/CD integration
+## 🌐 Test API – CrudCrud
+
+For this Proof of Concept, the project uses **CrudCrud**:
+
+🔗 https://crudcrud.com/
+
+CrudCrud is a **free REST API service** that allows developers and testers to quickly create temporary endpoints for CRUD operations without any backend setup.
+
+### Important notes:
+- Each API key is **temporary**
+- Data is automatically deleted after a period of time
+- The service is intended **only for testing and learning purposes**
+
+Because of this, all test scenarios are designed to be:
+- independent
+- self-contained
+- safe to run multiple times in parallel
 
 ## 🛠️ Tech Stack
 
@@ -20,27 +40,59 @@ The tests are designed to be:
 - Maven
 - Gherkin (BDD)
 - JavaScript (for dynamic test data generation)
+- GitHub Actions
+
+
 
 ## 📂 Project Structure
 
 ```bash
-src
- └── test
-     ├── java
-     │   └── runners
-     │       └── ApiRunnerTest.java
-     └── resources
-         ├── features
-         │   └── unicorns.feature
-         ├── models
-         │   ├── requests
-         │   │   └── unicorn-request.json
-         │   └── responses
-         │       └── unicorn-response.json
-         ├── common
-         │   └── helpers
-         │       └── data.js
-         └── karate-config.js
+.
+├── .github/
+│   └── workflows/
+│       └── karate-tests.yml
+├── src/
+│   └── test/
+│       ├── java/
+│       │   └── Runner.java
+│       └── resources/
+│           ├── features/
+│           │   └── unicorns.feature
+│           ├── models/
+│           │   ├── requests/
+│           │   │   └── unicorn-request.json
+│           │   └── responses/
+│           │       └── unicorn-response.json
+│           ├── common/
+│           │   └── helpers/
+│           │       └── data.js
+│           └── karate-config.js
+├── pom.xml
+├── .gitignore
+└── README.md
+
+```
+
+## Structure rationale
+
+```bash
+features/
+Contains Gherkin feature files (test scenarios only).
+
+models/requests
+JSON schemas for validating request bodies.
+
+models/responses
+JSON schemas for validating API responses.
+
+common/helpers
+JavaScript utility functions (e.g. fake data generation).
+
+karate-config.js
+Centralized configuration and environment handling.
+
+Runner.java
+Entry point to execute Karate tests with JUnit 5.
 ```
 
 ## 🧪 Test Scenarios Covered
@@ -50,6 +102,18 @@ src
 - Update a unicorn (PUT) (in progress / optional)
 - Schema validation for request and response payloads
 - Dynamic test data generation (random name, age, color)
+
+
+## 🔐 Configuration & Security
+
+The framework uses environment variables:
+
+```bash
+Variable	Description
+----------------------------
+BASE_URL	API base URL
+API_KEY	    API key
+```
 
 ## 🚀 How to Run the Tests
 
