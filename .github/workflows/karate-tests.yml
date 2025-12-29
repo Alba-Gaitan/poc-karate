@@ -1,6 +1,3 @@
-# poc-karate
-![CI](https://github.com/Alba-Gaitan/poc-karate/actions/workflows/karate-tests.yml/badge.svg)
-
 name: Karate API Tests
 
 on:
@@ -12,6 +9,12 @@ on:
 jobs:
   karate-tests:
     runs-on: ubuntu-latest
+
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        attempt: [1, 2] 
 
     steps:
       - name: Checkout repository
@@ -41,5 +44,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: karate-report
+          name: karate-reports-attempt-${{ matrix.attempt }}
           path: target/karate-reports

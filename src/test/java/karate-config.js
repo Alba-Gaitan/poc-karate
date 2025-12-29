@@ -10,6 +10,8 @@ function fn() {
     throw 'Missing environment variables BASE_URL or API_KEY';
   }
 
+    karate.configure('retry', { count: 3, interval: 2000 });
+
   var config = {
     env: env,
     baseUrl: baseUrl,
