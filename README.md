@@ -1,3 +1,5 @@
+![CI](https://github.com/Alba-Gaitan/poc-karate/actions/workflows/karate-tests.yml/badge.svg)
+
 # 🦄 API Automation Tests
 
 ## 📌 Project Overview
